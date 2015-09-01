@@ -47,8 +47,8 @@
       * Font size of editor text.
       */
       fontSize: {
-        value: 12,
-        type: Number,
+        value: '12px',
+        type: String,
         reflectToAttribute: true,
         observer: '_fontSizeChanged'
       },
@@ -116,8 +116,8 @@
 
     _observer: null,
 
-    
-    // TODO(sorvell): to work in IE reliably, can only be 
+
+    // TODO(sorvell): to work in IE reliably, can only be
     // created in enteredView. However, api that wants to access this.editor
     // may be used before that. Instead of making each function bail if
     // this.editor is not set, we create a dummy editor. At editor
@@ -185,12 +185,12 @@
       } else {
         var cb = this._whenMatches.bind(this);
         this._observer = new MutationObserver(function(mutations) {
-          cb(node, selector, method);   
+          cb(node, selector, method);
         });
 
         this._observer.observe(node, {
-          attributes: true, 
-          childList: true, 
+          attributes: true,
+          childList: true,
           characterData: true
         });
       }
